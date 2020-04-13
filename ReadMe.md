@@ -1,14 +1,19 @@
-﻿
-    仿去哪儿网移动端
+# qawh
 
-    主要做的模块：  
-        自由行、低价机票、酒店、首页
+## Project setup
+```
+npm install
+```
 
-	脚手架：
-        vue-cli
-    
-    技术栈： jsonserver axios betterscroll elementui mockjs vue
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-    
-    
-	
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
