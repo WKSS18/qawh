@@ -1,19 +1,8 @@
-# qawh
 
-## Project setup
-```
-npm install
-```
+项目名称：vue重写去哪儿网移动端
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+主要重写模块： 酒店  自由行 低价机票
 
-### Compiles and minifies for production
-```
-npm run build
-```
+技术栈： axios vue betterscroll  element-ui mockjs（待补充）
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
