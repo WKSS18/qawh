@@ -32,11 +32,13 @@ export default {
       routego(chunk){
           let rout = this.$router.options.routes.filter((item)=>{
                if(item.meta){
-                 console.log(item)
                   return item.meta.title === chunk.title
                }
-          })[0].path
-          this.$router.push(rout)
+          });
+          if(rout.length>0){
+            this.$router.push(rout[0].path)
+          }
+          
       }
   }
 };
