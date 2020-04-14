@@ -1,0 +1,32 @@
+{
+    "preflist":[
+        {
+            "id":"1000025",
+            "title":"济南-台儿庄区 2天跟团游",
+            "theme":"济南起止：台儿庄古城+兰陵油菜花海2日游【住古城内直营客栈 空座率30%】",
+            "img":"//imgs.qunarzz.com/vs_ceph_vs_tts/d966b43f-f884-4e36-be62-22cbef824f30.jpg_r_480x320x95_5b36a929.jpg",
+            "price":"338"
+        },
+        {
+            "id":"1000026",
+            "title":"济南-台儿庄区 2天跟团游",
+            "theme":"济南起止：台儿庄古城+大战纪念馆深度2日游【住古城内直营客栈 空座率30%】",
+            "img":"//imgs.qunarzz.com/vs_ceph_vs_tts/9056e2b0-e9e9-4d62-b304-35c4c20be077.jpg_r_480x320x95_9f51d389.jpg",
+            "price":"298"
+        },
+        {
+            "id":"1000027",
+            "title":"济南-台儿庄区 2天跟团游",
+            "theme":"济南起止：台儿庄古城+微山湖湿地+纪念馆二日☞住古城内直营客栈 空座率30%】",
+            "img":"//imgs.qunarzz.com/vs_ceph_vs_tts/25803fef-cc1c-4510-8271-71841818e6d5.jpg_r_480x320x95_28baa355.jpg",
+            "price":"298"
+        },
+        {
+            "id":"1000028",
+            "title":"济南-台儿庄区 2天跟团游",
+            "theme":"济南起止：台儿庄古城+尼山圣境+大战纪念馆2日游☞住宿古城内景区直营客栈",
+            "img":"//imgs.qunarzz.com/vs_ceph_vs_tts/e9886576-a030-444b-a2e2-6df489241e94.jpg_r_480x320x95_b0cbbe04.jpg",
+            "price":"338"
+        }
+    ]
+}

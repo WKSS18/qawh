@@ -1,0 +1,47 @@
+{
+    "sceniclist":[
+        {
+            "id":"3000001",
+            "img":"//img1.qunarzz.com/sight/p65/201211/07/2dcda4e400ace9f993835fbb.jpg_256x160_b1a93ad3.jpg",
+            "title":"龙门石窟",
+            "theme":"世界文化遗产 中国石刻艺术宝库",
+            "price":"98.7"
+        },
+        {
+            "id":"3000002",
+            "img":"//img1.qunarzz.com/sight/p0/1709/e9/e9b7ae23f567806ea3.img.jpg_256x160_659f7c33.jpg",
+            "title":"少林寺",
+            "theme":"登顶中岳嵩山，一览天下胜景，领略禅宗教法",
+            "price":"40"
+        },
+        {
+            "id":"3000003",
+            "img":"//img1.qunarzz.com/sight/p0/201309/12/317f9a83c526f54ac8d65eac.jpg_256x160_4216cb24.jpg",
+            "title":"古柏渡飞黄风景区",
+            "theme":"既有西北风光之雄奇，又有江南景色的秀美",
+            "price":"44.5"
+        },
+        {
+            "id":"3000004",
+            "img":"//img1.qunarzz.com/sight/p0/201405/27/544cae2aeb173cb6533ce6926b68f153.jpg_256x160_e80a446b.jpg",
+            "title":"清明上河园",
+            "theme":"穿越宋朝，亲身体验清明上河图",
+            "price":"120"
+        },
+        {
+            "id":"3000005",
+            "img":"//img1.qunarzz.com/sight/p0/1701/88/885ec9c1584a572aa3.img.png_256x160_cdccb910.png",
+            "title":"开封府",
+            "theme":"开封有个包青天，铁面无私辨忠奸",
+            "price":"59.8"
+        },
+        {
+            "id":"3000006",
+            "img":"//img1.qunarzz.com/sight/p0/1904/9f/9fc994c0fd6e93a4a3.img.jpg_256x160_dabff73a.jpg",
+            "title":"中国国花园",
+            "theme":"位于市区交通便利，享有国花第一园美誉！",
+            "price":"15"
+        }
+
+    ]
+}
