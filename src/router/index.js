@@ -16,7 +16,10 @@ Vue.use(VueRouter)
   },
   {
     path:'/hotel',
-    component:Hotel
+    component:Hotel,
+    meta:{
+      title:"酒店"
+    }
   }
  
 ]

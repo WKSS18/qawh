@@ -2,7 +2,7 @@
   <div class="main">
     <div class="qn-touchhead">
       <ul class="qn-touchlis">
-        <li class="qn-touchitem" v-for="item in touchlist.datalist" :key="item.id" @click='routego(item.id)'>
+        <li class="qn-touchitem" v-for="item in touchlist.datalist" :key="item.id" @click='routego(item)'>
           <img :src="item.img" alt />
           <span>{{item.title}}</span>
         </li>
@@ -29,13 +29,14 @@ export default {
     this.touchlist.datalist = rs.data.datalist;
   },
   methods:{
-      routego(id){
-          console.log(id);
-          switch(id){
-              case "00123":
-                  this.$router.push('/hotel');
-                  break;
-          }
+      routego(chunk){
+          let rout = this.$router.options.routes.filter((item)=>{
+               if(item.meta){
+                 console.log(item)
+                  return item.meta.title === chunk.title
+               }
+          })[0].path
+          this.$router.push(rout)
       }
   }
 };
