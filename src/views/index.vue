@@ -41,7 +41,7 @@
         </router-link>
         <router-link tag="li" to="/" active-class="active">
           <i class="iconfont">&#xe61a;</i>
-          <span>下载</span>
+          <span>APP下载</span>
         </router-link>
       </ul>
     </footer>
