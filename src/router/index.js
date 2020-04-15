@@ -4,6 +4,9 @@ import Index from '@/views/index.vue'
 import Hotel from "@/views/hotel/hotel.vue"
 import Order from '@/views/order/order.vue'
 import Profile from '@/views/profile/profile.vue'
+import Child from '@/views/indexcon/child.vue'
+import Block from '@/views/indexcon/block.vue'
+
 Vue.use(VueRouter)
   const routes = [
   {
@@ -12,7 +15,17 @@ Vue.use(VueRouter)
   },
   {
     path:'/index',
-    component:Index
+    component:Index,
+    children:[
+      {
+        path:'/index/child',
+        component:Child
+      },
+      {
+        path:'/index/block',
+        component:Block
+      }
+    ]
   },
   {
     path:'/hotel',

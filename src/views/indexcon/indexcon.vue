@@ -6,9 +6,7 @@
         <span class="tit-lf">今日特惠</span>
         <span class="tit-rf">
           <a href="#">更多特惠</a>
-          <span>
-            <i>></i>
-          </span>
+          <i class="iconfont spchange">&#xe7b3;</i>
         </span>
       </p>
       <ul class="spe-lis">
@@ -27,7 +25,7 @@
     <!-- 当季热门度假 -->
     <div class="index-hot">
       <p class="hot-tit">
-        <i class="iconfont changetree">&#xe61c;</i>
+        <i class="iconfont changetree">&#xe60a;</i>
         <span>当季热门度假</span>
       </p>
 
@@ -52,14 +50,71 @@
 
     <!-- 广告区域 -->
     <AD></AD>
+
+    <!-- 当季景点门票 -->
+    <div class="index-screen">
+      <p class="screen-tit">
+        <span class="scrtit-lf">
+          <i class="iconfont spchange">&#xe623;</i>
+          <span>当季景点门票</span>
+        </span>
+        <span class="scrtit-rf">
+          <span>更多特惠门票</span>
+          <i class="iconfont spchange">&#xe7b3;</i>
+        </span>
+      </p>
+      <div class="screen-con">
+        <ul class="screen-lis">
+          <li class="screen-item" v-for="item in screen.screenlist" :key="item.id">
+            <img :src="item.img" alt />
+            <p class="screen-titi">{{item.title}}</p>
+            <p class="scree-them">{{item.theme}}</p>
+            <p class="screen-price">
+              ￥
+              <em>{{item.price}}</em>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 旅行攻略 -->
+    <div class="index-travel">
+      <p class="tarvel-tit">
+        <span class="tarvel-lf">
+          <i class="iconfont spchange">&#xe60d;</i>
+          <span>旅行攻略</span>
+        </span>
+        <span class="tarvel-rf">
+          <span>更多精彩攻略</span>
+          <i class="iconfont spchange">&#xe7b3;</i>
+        </span>
+      </p>
+
+      <div class="tarvel-con">
+        <router-link
+          tag="div"
+          to="/index/child"
+          class="travel-child"
+          active-class="travel-active"
+        >趣味亲子游</router-link>
+        <router-link
+          tag="div"
+          to="/index/block"
+          class="travel-block"
+          active-class="travel-active"
+        >旅拍也要出大片</router-link>
+      </div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 
 <script>
-import { getPreData, getHotData } from "@/api/index.js";
+import { getPreData, getHotData, getScreenData } from "@/api/index.js";
 import "@/assets/style/font.scss";
-import AD from "@/components/ad.vue"
+import AD from "@/components/ad.vue";
 export default {
   data() {
     return {
@@ -68,6 +123,9 @@ export default {
       },
       hot: {
         hotlist: []
+      },
+      screen: {
+        screenlist: []
       }
     };
   },
@@ -79,8 +137,12 @@ export default {
     // 热门度假数据请求
     let hotrs = await getHotData();
     this.hot.hotlist = hotrs.data.hotlist;
+
+    // 景点数据请求
+    let screes = await getScreenData();
+    this.screen.screenlist = screes.data.sceniclist;
   },
-  components:{
+  components: {
     AD
   }
 };
@@ -116,20 +178,9 @@ export default {
     a {
       color: #757575;
     }
-    span {
-      display: inline-block;
-      width: 16px;
-      background: #00d0d4;
-      position: relative;
-      color: white;
-      height: 16px;
-      margin-top: 8px;
-      border-radius: 50%;
-      i {
-        position: absolute;
-        left: 3px;
-        top: -9px;
-      }
+    .spchange {
+      color: #10e9ac;
+      margin-left: 8px;
     }
   }
 }
@@ -253,5 +304,126 @@ export default {
   }
 }
 
+.index-screen {
+  margin-top: 15px;
+  .screen-tit {
+    height: 42px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .spchange {
+      color: #10e9ac;
+    }
+    .scrtit-lf {
+      span {
+        color: #15161a;
+        font-size: 18px;
+        font-family: "Hiragino Sans GB", "\5FAE\8F6F\96C5\9ED1";
+        font-weight: 550;
+        margin-left: 5px;
+      }
+    }
+    .scrtit-rf {
+      span {
+        font-family: "SimSun";
+        font-size: 14px;
+        color: #757575;
+        margin-right: 5px;
+      }
+    }
+  }
+  .screen-con {
+    img {
+      width: 172px;
+      height: 107px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+    p.screen-titi {
+      line-height: 15px;
+      padding-top: 0.05rem;
+      font-size: 14px;
+      color: #000;
+    }
 
+    p.scree-them {
+      height: auto !important;
+      font-size: 13px;
+      font-weight: 100;
+      color: #555;
+      margin-bottom: 0 !important;
+      line-height: 25px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    p.screen-price {
+      font-size: 18px;
+      color: #ff7400;
+    }
+
+    ul.screen-lis {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    li.screen-item {
+      width: 49%;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.index-travel {
+  .spchange {
+    color: #10e9ac !important;
+  }
+  span.tarvel-lf span {
+    color: #15161a;
+    font-size: 18px;
+    font-family: "Hiragino Sans GB", "\5FAE\8F6F\96C5\9ED1";
+    font-weight: 550;
+    margin-left: 8px;
+  }
+
+  span.tarvel-rf span {
+    font-family: "SimSun";
+    font-size: 14px;
+    color: #757575;
+    margin-right: 5px;
+  }
+
+  p.tarvel-tit {
+    height: 42px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.tarvel-con {
+  display: flex;
+}
+
+.travel-child,
+.travel-block {
+  // width: 82px;
+  padding: 0 10px;
+  height: 30px;
+  margin-right: 5px;
+  border: 1px solid #d7d7d7;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 30px;
+  color: #666;
+  border: 1px solid #000;
+}
+
+.travel-active {
+  background: #17c0c8;
+  border: 1px solid #17c0c8;
+  color: #fff;
+}
 </style>

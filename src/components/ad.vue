@@ -1,11 +1,14 @@
 <template>
   <div class="block">
-    <el-carousel height="150px" arrow="never" autoplay="true">
-      <el-carousel-item v-for="(item,index) in bannerlist" :key="index">
-        <img :src="item" alt />
+    <el-carousel trigger="click" arrow='never'>
+      <el-carousel-item   v-for="(item,index) in bannerlist" :key="index">
+        <img :src="item" />
       </el-carousel-item>
     </el-carousel>
+    <span>广告</span>
   </div>
+
+
 </template>
 <script>
 export default {
@@ -23,20 +26,20 @@ export default {
 <style lang="scss">
 .block {
   margin-top: 20px;
-  height: 117px;
-  overflow: hidden;
+  position: relative;
+  height:117px;
+  span {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    left: 6px;
+  }
   img {
     width: 100%;
     height: 117px;
     border-radius: 5px;
   }
-}
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
 }
 button.el-carousel__button {
   width: 10px;
@@ -49,4 +52,14 @@ button.el-carousel__button {
 .el-carousel__container {
   height: 117px !important;
 }
+.el-carousel.el-carousel--horizontal {
+    height: 100%;
+}
+.el-carousel__container {
+    height: 100%;
+}
+.el-carousel__container {
+    height: 100%;
+}
+
 </style>

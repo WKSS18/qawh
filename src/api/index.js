@@ -18,3 +18,15 @@ export const getHotData = ()=>{
     let url = '/hot.json';
     return get(url,{})
 }
+
+// 景点数据接口
+export const getScreenData = ()=>{
+    let url = '/scenic.json';
+    return get(url,{})
+}
+
+// 旅拍数据接口
+export const getTravelData = ()=>{
+    let url = '/strategy.json';
+    return get(url,{})
+}

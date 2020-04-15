@@ -183,8 +183,6 @@ export default {
   }
 
   main {
-    height: 2000px;
-    // background: pink;
     padding: 0 8px;
   }
   footer {
