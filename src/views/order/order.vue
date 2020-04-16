@@ -3,3 +3,6 @@
         order page
     </div>
 </template>
+<style lang="scss" socped>
+    
+</style>

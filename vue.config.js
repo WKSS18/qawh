@@ -30,4 +30,17 @@ module.exports = {
             }
         }
     },
+
+    // 配置代理
+    devServer:{
+        proxy:{
+            '/hotelapi':{
+                target:"https://touch.qunar.com",
+                changeOrigin:true,
+                pathRewrite:{
+                    '^/hotelapi':''
+                }
+            }
+        }
+    }
 }

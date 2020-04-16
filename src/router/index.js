@@ -6,6 +6,12 @@ import Order from '@/views/order/order.vue'
 import Profile from '@/views/profile/profile.vue'
 import Child from '@/views/indexcon/child.vue'
 import Block from '@/views/indexcon/block.vue'
+import City from '@/components/city.vue'
+import HotelInland from '@/views/hotel/hotelinland'
+import HotelLoverseas from '@/views/hotel/hoteloverseas'
+import HotelChoice from '@/views/hotel/hotelchoice'
+import HotelDetail from '@/views/hotel/hoteldetail'
+
 
 Vue.use(VueRouter)
   const routes = [
@@ -15,6 +21,7 @@ Vue.use(VueRouter)
   },
   {
     path:'/index',
+    redirect:'/index/child',
     component:Index,
     children:[
       {
@@ -30,9 +37,20 @@ Vue.use(VueRouter)
   {
     path:'/hotel',
     component:Hotel,
+    redirect:"/hotel/hotelinland",
     meta:{
       title:"酒店"
-    }
+    },
+    children:[
+      {
+        path:"/hotel/hotelinland",
+        component:HotelInland
+      },
+      {
+        path:"/hotel/hoteloverseas",
+        component:HotelLoverseas
+      }
+    ]
   },
   {
     path:"/order",
@@ -41,6 +59,18 @@ Vue.use(VueRouter)
   {
     path:"/profile",
     component:Profile
+  },
+  {
+    path:'/city',
+    component:City
+  },
+  {
+    path:'/hotelchoice',
+    component:HotelChoice
+  },
+  {
+    path:'/hoteldetail',
+    component:HotelDetail
   }
 ]
 
