@@ -24,15 +24,15 @@
         <input type="text" readonly :value="hotelmessage.endday" />
       </div>
       <p class="hotel-days">共{{hotelmessage.days}}晚</p>
-      <el-date-picker
-        v-model="hotelmessage.datetime"
-        class="date-block"
-        type="dates"
-        range-separator="至"
-        format="yyyy 年 MM 月 dd 日"
-        @change="getdays"
-        value-format="yyyy-MM-dd"
-      ></el-date-picker>
+        <el-date-picker
+          v-model="hotelmessage.datetime"
+          class="date-block"
+          type="dates"
+          range-separator="至"
+          format="yyyy 年 MM 月 dd 日"
+          @change="getdays"
+          value-format="yyyy-MM-dd"
+        ></el-date-picker>
     </div>
     <div class="hotel-location">
       <input type="text" placeholder="搜索酒店名、地名、地标" v-model="hotelmessage.keywords" />
@@ -58,21 +58,35 @@ export default {
         startday: "",
         endday: ""
       },
-      isDate: false
+      isDate: false,
     };
   },
   created() {
-
+    if (sessionStorage) {
+      sessionStorage.clear();
+    }
   },
   methods: {
     submitForm() {
-      let cityname =
-        Pinyin(this.hotelmessage.city, {
-          style: Pinyin.STYLE_NORMAL // 设置拼音风格
-        }).join("") + "_city";
+      var cityname = Pinyin(this.hotelmessage.city, {
+        style: Pinyin.STYLE_NORMAL // 设置拼音风格
+      }).join("");
+      if (this.hotelmessage.city === "北京" || this.hotelmessage.city === "上海") {
+        cityname += "_city";
+      }
+      if(this.hotelmessage.checkInDate==="" || this.hotelmessage.checkOutDate===""){
+        alert('请选择日期');
+        return;
+      }
       this.hotelmessage.cityurl = cityname;
-      this.$store.commit('SET_HOTELMSG',this.hotelmessage);
-      this.$router.push('/hoteldetail')
+      this.$store.commit("SET_HOTELMSG", this.hotelmessage);
+      sessionStorage.setItem("hotelmsg", JSON.stringify(this.hotelmessage));
+      // sessionStorage.setItem("city", this.hotelmessage.city);
+      // sessionStorage.setItem("checkInDate", this.hotelmessage.checkInDate);
+      // sessionStorage.setItem("checkOutDate", this.hotelmessage.checkOutDate);
+      // sessionStorage.setItem("cityurl", this.hotelmessage.cityurl);
+      // sessionStorage.setItem("keywords", this.hotelmessage.keywords);
+      this.$router.push("/hoteldetail");
     },
     //   选择城市
     getcityname() {
@@ -177,10 +191,10 @@ span.hcity-address {
 }
 
 /deep/.date-block {
-  z-index: 10;
+  z-index: 100;
   position: absolute;
   width: 95%;
-  height: 50px;
+  height: 45px;
 }
 /deep/.el-input__prefix {
   display: none;
@@ -207,13 +221,6 @@ span.hcity-address {
   }
 }
 
-/deep/.el-picker-panel.el-date-picker.el-popper {
-  position: absolute;
-  top: 275px;
-  width: 100%;
-  left: 0;
-  z-index: 2001;
-}
 
 .hotel-cityname {
   input {
@@ -234,4 +241,18 @@ span.hcity-address {
     font-family: PingFangSC-Regular, MicroSoft YaHei, "sans-serif";
   }
 }
+.date-block {
+    width: 100%!important;
+    position: absolute!important;
+    height: 45px!important;
+}
+
+span.el-input__prefix {
+    display: none;
+}
+
+input.el-input__inner {
+    background: transparent;
+}
+
 </style>

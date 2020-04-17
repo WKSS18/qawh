@@ -63,7 +63,7 @@
 <script>
 import BScroll from "@better-scroll/core";
 import Pullup from "@better-scroll/pull-up";
-import {getCities} from '@/api/hotel.js'
+import { getCities } from "@/api/hotel.js";
 BScroll.use(Pullup);
 export default {
   data() {
@@ -134,9 +134,11 @@ export default {
   mounted() {
     // 取出localStorage中的数据
     let list = JSON.parse(localStorage.getItem("historyname"));
-    let start = list.length > 6 ? list.length - 6 : 0;
-    // 只取最新的6条数据  并且最新的数据放在最前面，翻转
-    this.historylist = list.slice(start).reverse();
+    if (list) {
+      let start = list.length > 6 ? list.length - 6 : 0;
+      // 只取最新的6条数据  并且最新的数据放在最前面，翻转
+      this.historylist = list.slice(start).reverse();
+    }
   }
 };
 </script>
