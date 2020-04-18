@@ -64,7 +64,11 @@ import { getHotelDetailDate } from "@/api/hotel.js";
 import Hoteldetailitem from "./hoteldetailitem";
 import BScroll from "@better-scroll/core";
 import Pullup from "@better-scroll/pull-up";
+<<<<<<< HEAD
 import { Indicator, Toast } from "mint-ui";
+=======
+import {Indicator,Toast} from 'mint-ui'
+>>>>>>> ea0037e509159f905896f758cb66e743b4506b27
 
 BScroll.use(Pullup);
 export default {
@@ -115,9 +119,15 @@ export default {
       this.bscroll.on("pullingUp", () => this.pullingUpHandler());
     },
     async pullingUpHandler() {
+<<<<<<< HEAD
       Indicator.open();
       let hotelmsg = JSON.parse(sessionStorage.getItem("hotelmsg"));
       this.hotelmessage.initmsg = hotelmsg;
+=======
+      let hotelmsg = JSON.parse(sessionStorage.getItem("hotelmsg"));
+      this.hotelmessage.initmsg = hotelmsg;
+      Indicator.open();
+>>>>>>> ea0037e509159f905896f758cb66e743b4506b27
       let hoteldetailrs = await getHotelDetailDate({
         bd_source: "",
         checkInDate: hotelmsg.checkInDate,
@@ -206,7 +216,10 @@ ul.hoteldetail-traitlist li {
 }
 .hoteldetail-main {
   flex: 1;
+<<<<<<< HEAD
   margin-top: 10px;
+=======
+>>>>>>> ea0037e509159f905896f758cb66e743b4506b27
   overflow: hidden;
 }
 .hoteldetail-head {
@@ -260,4 +273,10 @@ p.hoteldetail-location {
   line-height: 30px;
   margin-left: 16px;
 }
+<<<<<<< HEAD
+=======
+.hoteldetail-trait {
+    margin-bottom: 10px;
+}
+>>>>>>> ea0037e509159f905896f758cb66e743b4506b27
 </style>
