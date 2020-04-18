@@ -40,6 +40,13 @@ module.exports = {
                 pathRewrite:{
                     '^/hotelapi':''
                 }
+            },
+            '/strategyapi':{
+                target:"https://touch.go.qunar.com",
+                changeOrigin:true,
+                pathRewrite:{
+                    '^/strategyapi':''
+                }
             }
         }
     }

@@ -4,6 +4,14 @@
     <div class="index-wrapper" ref="index-wrapper">
       <div class="index-con">
         <header>
+          <div class="index-search">
+            <div>
+              <i class="iconfont">&#xe65d;</i>
+              <input class="indexsea" type="text" />
+            </div>
+            <i class="iconfont index-location">&#xe63b;</i>
+          </div>
+
           <div class="qn-touchhead">
             <ul class="qn-touchlis">
               <li
@@ -20,7 +28,7 @@
         </header>
 
         <main>
-            <IndexCon></IndexCon>
+          <IndexCon></IndexCon>
         </main>
       </div>
     </div>
@@ -55,7 +63,7 @@ import "@/assets/style/common.scss";
 import "@/assets/style/font.scss";
 import BScroll from "@better-scroll/core";
 import Pullup from "@better-scroll/pull-up";
-import IndexCon from './indexcon/indexcon'
+import IndexCon from "./indexcon/indexcon";
 BScroll.use(Pullup);
 
 export default {
@@ -66,7 +74,7 @@ export default {
       }
     };
   },
-  components:{
+  components: {
     IndexCon
   },
   async created() {
@@ -126,7 +134,7 @@ export default {
     overflow: hidden;
   }
   .qn-touchhead {
-    padding-top: 15px;
+    padding-top: 10px;
     height: 290px;
     .qn-touchlis {
       display: flex;
@@ -229,5 +237,40 @@ export default {
   .router-link-active {
     color: #18c0c8;
   }
+}
+.index-search {
+  height: 36px;
+}
+input.indexsea {
+  border: none;
+  background: #eee;
+  width: 250px;
+  margin-left: 5px;
+  height: 36px;
+}
+.index-search {
+  display: flex;
+}
+.index-search div {
+  width: 295px;
+  width: 3052p;
+  border-radius: 3px;
+  border: 0 none;
+  padding-left: 10px;
+  background-color: #eee;
+}
+i.iconfont.index-location {
+  line-height: 36px;
+  margin-left: 15px;
+  color: #00bcd4 !important;
+}
+.index-search {
+  margin-left: 12px;
+}
+input.indexsea {
+    outline: none;
+}
+.main-container .index-wrapper {
+    margin-top: 10px;
 }
 </style>

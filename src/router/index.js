@@ -11,7 +11,7 @@ import HotelInland from '@/views/hotel/hotelinland'
 import HotelLoverseas from '@/views/hotel/hoteloverseas'
 import HotelChoice from '@/views/hotel/hotelchoice'
 import HotelDetail from '@/views/hotel/hoteldetail'
-
+import Strategy from '@/views/strategy/strategy'
 
 Vue.use(VueRouter)
   const routes = [
@@ -51,6 +51,13 @@ Vue.use(VueRouter)
         component:HotelLoverseas
       }
     ]
+  },
+  {
+    path:'/strategy',
+    component:Strategy,
+    meta:{
+      title:'攻略'
+    }
   },
   {
     path:"/order",
