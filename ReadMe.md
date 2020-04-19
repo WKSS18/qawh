@@ -39,3 +39,6 @@ https://touch.go.qunar.com/api/proxy/book/search?RN=1&needRecommandTag=1&useConf
 
 5 精选内容数据加载
 通过测试发现，每次的offset是一个随机的八位数，通过Math.random随机生成后发现可以正常获取后台返回的值
+
+6 用户登录，订单模块逻辑
+使用mockjs模拟了一个用户数据,通过维护不同的状态实现用户登录和退出是的视图切换（订单模块和用户登录模块）
