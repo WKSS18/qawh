@@ -52,3 +52,7 @@ input: "我的"
 ip: "223.104.109.133"
 requestType: "touch"
 https://www.qunar.com/bigsearch/request
+
+详情页的数据请求接口
+get
+https://touch.piao.qunar.com/touch/detail.htm?id=340864

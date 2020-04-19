@@ -14,7 +14,7 @@
 
     <div class="ticksearch-views" ref="ticksaerch-swapper">
       <ul class="ticksearch-list">
-        <li class="ticksearch-item" v-for="item in ticketsearch.ticketlist" :key="item.productID">
+        <li class="ticksearch-item" @click='godetail(item.schemeUrl)' v-for="item in ticketsearch.ticketlist" :key="item.productID">
           <span class="tickitem-img">
             <img src="//s.qunarzz.com/homenode/images/bigsearch/ticket.png" alt />
           </span>
@@ -73,7 +73,7 @@ export default {
         this.ids = null;
         clearTimeout(this.ids);
         this.getticklist(this.seakeyword);
-      }, 500);
+      }, 200);
     },
     async getticklist(value) {
       //   发送请求
@@ -94,8 +94,13 @@ export default {
     initticketscroll() {
       this.bscroll = new BScroll(this.$refs["ticksaerch-swapper"], {
         scrollY: true,
-        pullUpLoad: true
+        pullUpLoad: true,
+        click:true
       });
+    },
+    godetail(itemid){
+      let id = itemid.split('=')[1];
+      location.href = '/piaodetail.html?'+id
     }
   }
 };
