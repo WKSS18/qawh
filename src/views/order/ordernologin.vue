@@ -4,7 +4,7 @@
       您还没有本地订单
       <br />快登录查看在线订单吧
     </p>
-    <button>登录</button>
+    <button @click='$router.push("/login")'>登录</button>
   </div>
 </template>
 <style lang="scss" scoped>

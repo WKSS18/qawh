@@ -7,17 +7,27 @@
             <span class="order-mine">我的订单<i class="iconfont">&#xe670;</i></span>
             <span class="order-search">订单查询</span>
         </div>
-        <OrderSuccess v-show='false'></OrderSuccess>
-        <OrdernoLogin></OrdernoLogin>
+        <OrderSuccess v-show='showordersucess'></OrderSuccess>
+        <OrdernoLogin v-show="showordernologin"></OrdernoLogin>
     </div>
 </template>
 <script>
 import OrderSuccess from './ordersuccess'
 import OrdernoLogin from './ordernologin'
 export default {
+    data(){
+        return {
+            showordersucess:false,
+            showordernologin:true
+        }
+    },
     components:{
         OrderSuccess,
         OrdernoLogin
+    },
+    created(){
+        this.showordersucess = localStorage.length === 0? this.showordersucess: JSON.parse(localStorage.showorder).showordersucess;
+        this.showordernologin =localStorage.length === 0? this.showordernologin : JSON.parse(localStorage.showorder).showordernologin;
     }
 }
 </script>

@@ -16,91 +16,119 @@ import OrderAll from '@/views/order/orderall'
 import StayGo from '@/views/order/staygo'
 import StayPay from '@/views/order/staypay'
 import Refund from '@/views/order/refund'
+import Login from '@/views/user/login'
+import Register from '@/views/user/register'
+import Note from '@/views/user/note'
+import Account from '@/views/user/account'
+import Logout from '@/views/user/logout'
 
 
 Vue.use(VueRouter)
-  const routes = [
+const routes = [
   {
     path: '/',
-    redirect:"/index"
+    redirect: "/index"
   },
   {
-    path:'/index',
-    redirect:'/index/child',
-    component:Index,
-    children:[
+    path: '/index',
+    redirect: '/index/child',
+    component: Index,
+    children: [
       {
-        path:'/index/child',
-        component:Child
+        path: '/index/child',
+        component: Child
       },
       {
-        path:'/index/block',
-        component:Block
+        path: '/index/block',
+        component: Block
       }
     ]
   },
   {
-    path:'/hotel',
-    component:Hotel,
-    redirect:"/hotel/hotelinland",
-    meta:{
-      title:"酒店"
+    path: '/hotel',
+    component: Hotel,
+    redirect: "/hotel/hotelinland",
+    meta: {
+      title: "酒店"
     },
-    children:[
+    children: [
       {
-        path:"/hotel/hotelinland",
-        component:HotelInland
+        path: "/hotel/hotelinland",
+        component: HotelInland
       },
       {
-        path:"/hotel/hoteloverseas",
-        component:HotelLoverseas
+        path: "/hotel/hoteloverseas",
+        component: HotelLoverseas
       }
     ]
   },
   {
-    path:'/strategy',
-    component:Strategy,
-    meta:{
-      title:'攻略'
+    path: '/strategy',
+    component: Strategy,
+    meta: {
+      title: '攻略'
     }
   },
   {
-    path:"/order",
-    component:Order,
-    children:[
+    path: "/order",
+    component: Order,
+    children: [
       {
-        path:'/order/orderall',
-        component:OrderAll
+        path: '/order/orderall',
+        component: OrderAll
       },
       {
-        path:'/order/staygo',
-        component:StayGo
+        path: '/order/staygo',
+        component: StayGo
       },
       {
-        path:'/order/staypay',
-        component:StayPay
+        path: '/order/staypay',
+        component: StayPay
       },
       {
-        path:'/order/refund',
-        component:Refund
+        path: '/order/refund',
+        component: Refund
       }
     ]
   },
   {
-    path:"/profile",
-    component:Profile
+    path: "/profile",
+    component: Profile
   },
   {
-    path:'/city',
-    component:City
+    path: '/city',
+    component: City
   },
   {
-    path:'/hotelchoice',
-    component:HotelChoice
+    path: '/hotelchoice',
+    component: HotelChoice
   },
   {
-    path:'/hoteldetail',
-    component:HotelDetail
+    path: '/hoteldetail',
+    component: HotelDetail
+  },
+  {
+    path: '/login',
+    component: Login,
+    redirect:'/login/note',
+    children:[
+      {
+        path:'/login/note',
+        component:Note,
+      },
+      {
+        path:"/login/account",
+        component:Account
+      }
+    ]
+  },
+  {
+    path:'/logout',
+    component:Logout
+  },
+  {
+    path: '/register',
+    component: Register
   }
 ]
 

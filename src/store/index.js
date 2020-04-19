@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     cityname:"北京",
-    hotelmessage:{}
+    hotelmessage:{},
   },
   mutations: {
     SET_CITY(state,status){
