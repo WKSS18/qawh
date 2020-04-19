@@ -34,6 +34,5 @@ export const getTravelData = ()=>{
 // 门票搜索接口
 export const getTickData = (params)=>{
     let url = '/ticketapi/bigsearch/request';
-    console.log(params)
     return post(url,params);
 }

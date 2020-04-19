@@ -36,8 +36,8 @@ export default {
     };
   },
   created() {
-    this.showlogout = localStorage.length === 0? this.showlogout: JSON.parse(localStorage.showprofile).showlogout;
-    this.showloginsuc =localStorage.length === 0? this.showloginsuc : JSON.parse(localStorage.showprofile).showloginsuc;
+    this.showlogout = localStorage.showprofile === undefined? this.showlogout: JSON.parse(localStorage.showprofile).showlogout;
+    this.showloginsuc =localStorage.showprofile === undefined? this.showloginsuc : JSON.parse(localStorage.showprofile).showloginsuc;
   },
   components: {
     SuccessProfile

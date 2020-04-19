@@ -26,8 +26,9 @@ export default {
         OrdernoLogin
     },
     created(){
-        this.showordersucess = localStorage.length === 0? this.showordersucess: JSON.parse(localStorage.showorder).showordersucess;
-        this.showordernologin =localStorage.length === 0? this.showordernologin : JSON.parse(localStorage.showorder).showordernologin;
+        console.log(localStorage,localStorage.length)
+        this.showordersucess = localStorage.showorder === undefined? this.showordersucess: JSON.parse(localStorage.showorder).showordersucess;
+        this.showordernologin =localStorage.showorder === undefined? this.showordernologin : JSON.parse(localStorage.showorder).showordernologin;
     }
 }
 </script>

@@ -11,11 +11,33 @@
       </div>
       <span class="ticksearch-cancel" @click="tickback">取消</span>
     </div>
+
+    <div class="ticksearch-views" ref="ticksaerch-swapper">
+      <ul class="ticksearch-list">
+        <li class="ticksearch-item" v-for="item in ticketsearch.ticketlist" :key="item.productID">
+          <span class="tickitem-img">
+            <img src="//s.qunarzz.com/homenode/images/bigsearch/ticket.png" alt />
+          </span>
+          <span class="ticketitem-con">
+            <span class="tickitem-title">{{item.text}}</span>
+            <span class="tickitem-claaify">{{item.hint}}</span>
+          </span>
+
+          <span class="tickitem-price" v-show="item.price">
+            <span>￥{{item.price}}</span>起
+          </span>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import { getTickData } from "@/api/index";
+import BScroll from "@better-scroll/core";
+import Pullup from "@better-scroll/pull-up";
+
+BScroll.use(Pullup);
 export default {
   data() {
     return {
@@ -29,6 +51,11 @@ export default {
         requestType: "touch"
       }
     };
+  },
+  created() {
+    this.$nextTick(() => {
+      this.initticketscroll();
+    });
   },
   methods: {
     // 维护状态进行视图的切换
@@ -56,11 +83,19 @@ export default {
         ip: this.ticketsearch.ip,
         requestType: this.ticketsearch.requestType
       });
-      console.log(this.ticketrs);
+      this.ticketsearch.ticketlist = ticketrs.data.data.suggestions;
     },
     // 取消
     clearsearch() {
       event.currentTarget.previousElementSibling.value = "";
+    },
+
+    // 主体内容滚动效果
+    initticketscroll() {
+      this.bscroll = new BScroll(this.$refs["ticksaerch-swapper"], {
+        scrollY: true,
+        pullUpLoad: true
+      });
     }
   }
 };
@@ -68,6 +103,10 @@ export default {
 <style lang="scss" scoped>
 .ticksearch {
   flex: 1;
+}
+
+.ticksearch {
+  height: 100%;
 }
 .ticksearch-head {
   display: flex;
@@ -100,5 +139,58 @@ span.ticksearch-cancel {
 .ticksearch-keyword input {
   background: #f4f4f4;
   border: none;
+}
+.ticksearch {
+  display: flex;
+  flex-direction: column;
+}
+.ticksearch-views {
+  flex: 1;
+  margin-top: 20px;
+  overflow: hidden;
+}
+span.tickitem-img img {
+  width: 22px;
+}
+span.tickitem-title {
+  color: #3f4548;
+  font-size: 15px;
+  font-weight: bold;
+}
+li.ticksearch-item {
+  display: flex;
+}
+span.tickitem-claaify {
+  color: #9fa2a3;
+  font-size: 12px;
+}
+span.tickitem-img {
+  margin: 0 15px;
+}
+li.ticksearch-item {
+  line-height: 22px;
+  margin-top: 22px;
+}
+span.tickitem-price span {
+  color: #ff8300;
+  font-size: 15px;
+  font-weight: bold;
+}
+span.tickitem-price {
+  color: black;
+}
+span.tickitem-claaify {
+  margin-left: 10px;
+}
+span.ticketitem-con {
+  width: 62%;
+}
+span.tickitem-price {
+  text-align: right;
+  flex: 1;
+  margin-right: 13px;
+}
+span.tickitem-price span {
+  margin: 0 4px;
 }
 </style>
