@@ -12,6 +12,11 @@ import HotelLoverseas from '@/views/hotel/hoteloverseas'
 import HotelChoice from '@/views/hotel/hotelchoice'
 import HotelDetail from '@/views/hotel/hoteldetail'
 import Strategy from '@/views/strategy/strategy'
+import OrderAll from '@/views/order/orderall'
+import StayGo from '@/views/order/staygo'
+import StayPay from '@/views/order/staypay'
+import Refund from '@/views/order/refund'
+
 
 Vue.use(VueRouter)
   const routes = [
@@ -61,7 +66,25 @@ Vue.use(VueRouter)
   },
   {
     path:"/order",
-    component:Order
+    component:Order,
+    children:[
+      {
+        path:'/order/orderall',
+        component:OrderAll
+      },
+      {
+        path:'/order/staygo',
+        component:StayGo
+      },
+      {
+        path:'/order/staypay',
+        component:StayPay
+      },
+      {
+        path:'/order/refund',
+        component:Refund
+      }
+    ]
   },
   {
     path:"/profile",
