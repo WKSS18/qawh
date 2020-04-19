@@ -47,6 +47,13 @@ module.exports = {
                 pathRewrite:{
                     '^/strategyapi':''
                 }
+            },
+            'ticketapi':{
+                target:"https://www.qunar.com",
+                changeOrigin:true,
+                pathRewrite:{
+                    '^/ticketapi':''
+                }
             }
         }
     }

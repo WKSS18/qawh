@@ -1,13 +1,13 @@
 <template>
   <div class="main-container">
     <!-- 主体内容区域滚动效果 -->
-    <div class="index-wrapper" ref="index-wrapper">
+    <div class="index-wrapper" ref="index-wrapper" v-show="$store.state.isshowmain">
       <div class="index-con">
         <header>
           <div class="index-search">
             <div>
               <i class="iconfont">&#xe65d;</i>
-              <input class="indexsea" type="text" />
+              <input class="indexsea" type="text" @click="ticksearch" readonly placeholder="搜索景点门票" />
             </div>
             <i class="iconfont index-location">&#xe63b;</i>
           </div>
@@ -32,6 +32,8 @@
         </main>
       </div>
     </div>
+
+    <TickSearch v-show="$store.state.isshowsearch"></TickSearch>
 
     <footer>
       <ul class="footer-nav">
@@ -64,6 +66,7 @@ import "@/assets/style/font.scss";
 import BScroll from "@better-scroll/core";
 import Pullup from "@better-scroll/pull-up";
 import IndexCon from "./indexcon/indexcon";
+import TickSearch from './ticket/ticksearch'
 BScroll.use(Pullup);
 
 export default {
@@ -71,11 +74,15 @@ export default {
     return {
       touchlist: {
         datalist: []
-      }
+      },
+      // // 维护两个状态，搜索页和主页切换
+      // isshowmain:true,
+      // isshowsearch:false
     };
   },
   components: {
-    IndexCon
+    IndexCon,
+    TickSearch
   },
   async created() {
     let rs = await getIndexData();
@@ -119,7 +126,12 @@ export default {
           document.querySelector(".launched").innerHTML = "&#xe61d;";
         }
       });
-    }
+    },
+
+      // 门票搜索
+      ticksearch(){
+         this.$store.commit('SET_TICKSHOW',true);
+      }
   }
 };
 </script>
@@ -272,5 +284,10 @@ input.indexsea {
 }
 .main-container .index-wrapper {
     margin-top: 10px;
+}
+input.indexsea {
+    font-size: 15px;
+    color: #a5a5a5;
+    padding-left: 7px;
 }
 </style>

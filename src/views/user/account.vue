@@ -27,6 +27,7 @@ export default {
   },
   methods: {
     async loginsub() {
+      // 保证用户名和密码不为空
       if (
         this.username.trim().length === 0 ||
         this.password.trim().length === 0
@@ -34,13 +35,16 @@ export default {
         alert("用户名或密码不能为空");
         return;
       }
+      // 登录请求
       let loginms = await this.$http.post("/api/login", {
         username: this.username,
         password: this.password
       });
+      // 登录后，清空输入框的数据
       this.username = "";
       this.password = "";
       console.log(loginms);
+      // 根据后台返回的数据进行一些信息提示
       if (loginms.data.code === -1) {
         alert(loginms.data.message);
       } else if (loginms.data.code === -2) {
@@ -51,6 +55,7 @@ export default {
           "username",
           JSON.parse(loginms.config.data).username
         );
+        // 存储用户登录前后登录后的两个状态
         localStorage.setItem(
           "showprofile",
           JSON.stringify({
@@ -58,11 +63,12 @@ export default {
             showloginsuc: true
           })
         );
+        // 存储订单模块登录前和登录后的状态
         localStorage.setItem('showorder',JSON.stringify({
           showordersucess:true,
           showordernologin:false
         }))
-
+        // 登录成功跳到我的页面
         this.$router.push("/profile");
       }
     }

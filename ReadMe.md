@@ -41,4 +41,14 @@ https://touch.go.qunar.com/api/proxy/book/search?RN=1&needRecommandTag=1&useConf
 通过测试发现，每次的offset是一个随机的八位数，通过Math.random随机生成后发现可以正常获取后台返回的值
 
 6 用户登录，订单模块逻辑
+
+测试账号：  admin  123
 使用mockjs模拟了一个用户数据,通过维护不同的状态实现用户登录和退出是的视图切换（订单模块和用户登录模块）
+
+7 搜索门票搜索接口
+post
+city: "北京"
+input: "我的"
+ip: "223.104.109.133"
+requestType: "touch"
+https://www.qunar.com/bigsearch/request

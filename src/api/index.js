@@ -30,3 +30,10 @@ export const getTravelData = ()=>{
     let url = '/strategy.json';
     return get(url,{})
 }
+
+// 门票搜索接口
+export const getTickData = (params)=>{
+    let url = '/ticketapi/bigsearch/request';
+    console.log(params)
+    return post(url,params);
+}
