@@ -1,9 +1,9 @@
 
 项目名称：vue重写去哪儿网移动端
 
-主要重写模块： 酒店  自由行 低价机票
+主要重写模块： 酒店  攻略 登录 订单
 
-技术栈： axios vue betterscroll  element-ui mockjs（待补充）
+技术栈： axios  vue  betterscroll  element-ui  mockjs （待补充）
 
 
 
@@ -56,3 +56,5 @@ https://www.qunar.com/bigsearch/request
 详情页的数据请求接口
 get
 https://touch.piao.qunar.com/touch/detail.htm?id=340864
+
+8 订单数据接口

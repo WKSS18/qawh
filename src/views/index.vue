@@ -9,7 +9,7 @@
               <i class="iconfont">&#xe65d;</i>
               <input class="indexsea" type="text" @click="ticksearch" readonly placeholder="搜索景点门票" />
             </div>
-            <i class="iconfont index-location">&#xe63b;</i>
+            <i class="iconfont index-location" @click='$router.push("/profile")'>&#xe64a;</i>
           </div>
 
           <div class="qn-touchhead">
@@ -41,7 +41,7 @@
           <i class="iconfont launched">&#xe61d;</i>
           <span>首页</span>
         </router-link>
-        <router-link tag="li" to="/order" active-class="active">
+        <router-link tag="li" to="/order/orderall" active-class="active">
           <i class="iconfont">&#xe618;</i>
           <span>订单</span>
         </router-link>

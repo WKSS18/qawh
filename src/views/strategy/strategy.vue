@@ -2,7 +2,7 @@
   <div class="strategy-container">
     <div>
       <div class="stargety-header">
-        <i class="iconfont stargety-bak" @click="$router.go(-1)" style="font-size:25px">&#xe928;</i>
+        <i class="iconfont stargety-bak" @click="$router.push('/index')" style="font-size:25px">&#xe928;</i>
         <span class="stargety-title">去哪儿攻略</span>
         <span class="stargety-record">
           <i class="iconfont stargety-mine" style="font-size:20px">&#xe67b;</i>

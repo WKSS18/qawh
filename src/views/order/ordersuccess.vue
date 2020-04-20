@@ -9,12 +9,33 @@
       </ul>
     </div>
 
-    <div class="ordersuc-orderlist">
+    <div class="ordersuc-orderlist" ref='ordersuc-orderlist'>
       <router-view></router-view>
-      <p>没有查询到相关订单</p>
+      <p v-show='order.orderlist.length > 0 ? false : true'>没有查询到相关订单</p>
     </div>
   </div>
 </template>
+
+<script>
+import { getAllOrderData } from "@/api/order";
+export default {
+  data() {
+    return {
+      order: {
+        orderlist: [],
+      }
+    };
+  },
+  async created() {
+    let orderrs = await getAllOrderData();
+    this.order.orderlist = orderrs.data.data.orderList;
+    if(this.order.orderlist.length > 0){
+        this.$refs['ordersuc-orderlist'].style.background = "none";
+        this.$refs['ordersuc-orderlist'].style.background = "#f0f2f4";
+    }
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 @import "@/assets/style/mixin.scss";
@@ -29,6 +50,7 @@
   background: #f0f2f4
     url(//s.qunarzz.com/ordercenter_mobile/images/order_login.png) no-repeat
     center 100px;
+    background-color:#f0f2f4 ;
   background-size: 70%;
   flex: 1;
   margin-top: 1px;

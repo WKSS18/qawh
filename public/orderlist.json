@@ -1,0 +1,123 @@
+{
+    "data" : {
+      "hasMore" : false,
+      "orderList" : [ {
+        "sysCode" : 1005,
+        "orderNo" : "102243664575",
+        "orderType" : 1005001,
+        "status" : 2030,
+        "statusDesc" : "已取消",
+        "currency" : "&yen;",
+        "price" : 322,
+        "convertPrice" : 0,
+        "isShare" : false,
+        "name":"全季酒店(北京朝阳门店)",
+        "payDeadline" : "",
+        "appAction" : [ {
+          "url" : "http://touch.qunar.com/hotel/v8/cnhotelorderdetail?orderNum=102243664575&smobile=b046a2c00b2ffa7b95fd683062e3b0d260f4f424dbb598d9f9c409cbf63a8948",
+          "actionName" : "detail"
+        } ],
+        "canDelete" : true,
+        "businessType" : "hotel",
+        "roomType" : "高级大床A(无窗)",
+        "hotelSeq" : "beijing_city_3818",
+        "fromDate" : "2020-04-20",
+        "toDate" : "2020-04-21",
+        "roomCount" : 1,
+        "createTime" : "2020-04-20 18:14:22",
+        "productTitle" : "全季酒店(北京朝阳门店)",
+        "paidMoney" : 0,
+        "loan" : 0,
+        "saleType" : 0,
+        "productCount" : null,
+        "address" : "北京东城区朝内大街130号(朝阳门桥旁边)",
+        "canBind" : false
+      }, {
+        "sysCode" : 2801,
+        "orderNo" : "hmk200420181247963",
+        "orderType" : 2801001,
+        "status" : 2030,
+        "statusDesc" : "订单取消 ",
+        "name":"北京-上海",
+        "currency" : "&yen;",
+        "price" : 746,
+        "convertPrice" : 0,
+        "isShare" : false,
+        "payDeadline" : "",
+        "appAction" : [ {
+          "url" : "https://order.flight.qunar.com/ncs/page/orderdetail?orderNo=hmk200420181247963&otaType=1&domain=sub.trade.qunar.com",
+          "actionName" : "detail"
+        } ],
+        "canDelete" : true,
+        "businessType" : "flight",
+        "createTime" : "2020-04-20 18:12:47",
+        "originFlight" : "吉祥航HO1252",
+        "isRoundTrip" : false,
+        "arrival" : "2020-04-21 16:30:00",
+        "flightList" : [ {
+          "isInbound" : false,
+          "isReturnTicket" : false,
+          "from" : "北京",
+          "to" : "上海",
+          "dptAirportShot" : "大兴国际机场",
+          "arrAirportShot" : "虹桥机场",
+          "dptTower" : "",
+          "arrTower" : "T2",
+          "boardGate" : "",
+          "checkinCounter" : "K19-K28,W01-W08",
+          "flightStatusCode" : "12",
+          "isMixUp" : false,
+          "departure" : "2020-04-21 14:25:00",
+          "arrival" : "2020-04-21 16:30:00",
+          "days" : 0,
+          "isTransfer" : false,
+          
+          "transferNum" : 0,
+          "flights" : [ {
+            "originFlight" : "吉祥航HO1252",
+            "companyShortName" : "吉祥航",
+            "flightNo" : "HO1252",
+            "shareFlight" : ""
+          } ],
+          "hasShareFlight" : false,
+          "mixUp" : {
+            "departures" : [ ],
+            "arrivals" : [ ]
+          }
+        } ],
+        "canBind" : false
+      }, {
+        "sysCode" : 5001,
+        "orderNo" : "qgpww20042012143186b",
+        "orderType" : 5001001,
+        "status" : 2030,
+        "statusDesc" : "订单取消",
+        "arrival" : "2020-04-20 18:59:00",
+        "currency" : "&yen;",
+        "price" : 553,
+        "trainNo" : "G135",
+        "name":"北京南-上海虹桥",
+        "convertPrice" : 0,
+        "isShare" : false,
+        "payDeadline" : "",
+        "appAction" : [ {
+          "url" : "http://touch.qunar.com/h5/train/trainorderdetail?orderNo=qgpww20042012143186b",
+          "actionName" : "detail"
+        } ],
+        "canDelete" : true,
+        "businessType" : "train",
+        "createTime" : "2020-04-20 12:14:31",
+        "trainList" : [ {
+          "fromStation" : "北京南",
+          "toStation" : "上海虹桥",
+          "trainTypeDesc" : "高速动车",
+          "isTransfer" : false,
+          "departure" : "2020-04-20 13:05:00",
+          "arrival" : "2020-04-20 18:59:00",
+          "days" : 0,
+          "trainNo" : [ "G135" ],
+          "seatNos" : [ null ]
+        } ]
+      } ]
+    }
+  }

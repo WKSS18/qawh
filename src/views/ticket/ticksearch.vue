@@ -36,7 +36,8 @@
 import { getTickData } from "@/api/index";
 import BScroll from "@better-scroll/core";
 import Pullup from "@better-scroll/pull-up";
-
+import {Indicator,Toast} from 'mint-ui';
+import "mint-ui/lib/style.css";
 BScroll.use(Pullup);
 export default {
   data() {
@@ -76,6 +77,7 @@ export default {
       }, 200);
     },
     async getticklist(value) {
+      Indicator.open();
       //   发送请求
       let ticketrs = await getTickData({
         city: this.ticketsearch.city,
@@ -84,6 +86,7 @@ export default {
         requestType: this.ticketsearch.requestType
       });
       this.ticketsearch.ticketlist = ticketrs.data.data.suggestions;
+      Indicator.close();
     },
     // 取消
     clearsearch() {

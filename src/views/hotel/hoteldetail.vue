@@ -65,6 +65,7 @@ import Hoteldetailitem from "./hoteldetailitem";
 import BScroll from "@better-scroll/core";
 import Pullup from "@better-scroll/pull-up";
 import { Indicator, Toast } from "mint-ui";
+import "mint-ui/lib/style.css";
 BScroll.use(Pullup);
 export default {
   data() {

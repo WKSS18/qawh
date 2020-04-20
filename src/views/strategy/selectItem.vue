@@ -1,7 +1,11 @@
 <template>
   <div class="straselect-container">
     <ul class="strselect-list">
-      <li class="strselect-liitem" v-for="item in selectcon.selectlist" :key="Number(item.createTime)-Math.random()">
+      <li
+        class="strselect-liitem"
+        v-for="item in selectcon.selectlist"
+        :key="Number(item.createTime)-Math.random()"
+      >
         <p class="straselect-title">{{item.title}}</p>
         <p class="straselect-username">{{item.userName}}</p>
         <div class="straselect-swapper" :ref="item.id" :id="item.id">
@@ -23,6 +27,7 @@ import { getSelectData } from "@/api/stargety";
 import BScroll from "@better-scroll/core";
 import Pullup from "@better-scroll/pull-up";
 import { Indicator, Toast } from "mint-ui";
+import "mint-ui/lib/style.css";
 BScroll.use(Pullup);
 export default {
   data() {
@@ -50,7 +55,8 @@ export default {
     initBscroll() {
       this.bscroll = new BScroll(this.$root.$el, {
         scrollY: true,
-        pullUpLoad: true
+        pullUpLoad: true,
+        click:true
       });
       //  this.rowscroll = new BScroll(document.querySelector('.straselect-swapper'), {
       //   scrollX: true,
@@ -69,7 +75,7 @@ export default {
 
       this.selectcon.selectlist.push(...selectrs.data.data.list);
       this.selectcon.selectlistlen = selectrs.data.data.list.length;
-    console.log(this.selectcon.selectlist)
+      console.log(this.selectcon.selectlist);
       this.$nextTick(() => {
         //   多个不同的区块同时实现横向滑动效果
         for (var i = 0; i < this.selectcon.selectlist.length; i++) {
