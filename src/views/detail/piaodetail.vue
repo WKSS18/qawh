@@ -1,6 +1,6 @@
 <template>
     <div class="detailpiao">
-        {{detailhtm}}   
+        详情页面   
     </div>
 </template>
 

@@ -1,7 +1,7 @@
 
 项目名称：vue重写去哪儿网移动端
 
-主要重写模块： 酒店  攻略 登录 订单
+主要重写模块： 酒店  攻略  登录  订单
 
 技术栈： axios  vue  betterscroll  element-ui  mockjs （待补充）
 

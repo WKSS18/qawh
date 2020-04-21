@@ -1,5 +1,5 @@
 <template>
-  <div class="hotel-detailitem">
+  <div class="hotel-detailitem" @click='hoteldetail(item.seqNo)'>
     <p class="hotelitem-img">
       <img class="hotelitem-hotelimg" :src="item.imageid" alt />
       <img
@@ -47,6 +47,11 @@ export default {
   props: ["item"],
 
   created() {
+  },
+  methods:{
+    hoteldetail(id){
+      location.href = './hoteldetail.html?'+id;
+    }
   }
 };
 </script>
