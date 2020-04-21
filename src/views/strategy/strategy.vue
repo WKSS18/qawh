@@ -50,7 +50,7 @@
         <ul class="stragety-hotlist">
           <li v-for="item in countryhot.countryhotlist" :key="item.value">{{item.name}}</li>
         </ul>
-        <p>查看更多</p>
+        <p  @click="$router.push('/strategy/citymore/inland')">查看更多</p>
       </div>
       <div class="stargety-ship"></div>
       <!-- 国外热门 -->
@@ -59,7 +59,7 @@
         <ul class="stragety-boardhotlist">
           <li v-for="item in countryhot.boardhotlist" :key="item.value">{{item.name}}</li>
         </ul>
-        <p>查看更多</p>
+        <p @click="$router.push('/strategy/citymore/boardcity')">查看更多</p>
       </div>
 
       <!-- 特色玩法 -->
@@ -127,16 +127,13 @@ export default {
   },
   async created() {
     //   最近浏览的数据，从localStroage中获取
-    if (localStorage.historyname.length === 0) {
-      this.cityrecentylist.length = 4;
-    } else {
-      this.cityrecentylist =
-        JSON.parse(localStorage.historyname).length < 4
-          ? JSON.parse(localStorage.historyname)
-          : JSON.parse(localStorage.historyname).slice(
-              JSON.parse(localStorage.historyname).length - 4
-            );
-    }
+    if (localStorage.historyname) {
+      if(localStorage.historyname.length===0){
+        this.cityrecentylist.length = 4;
+      }else{
+        this.cityrecentylist = JSON.parse(localStorage.historyname).length < 4? JSON.parse(localStorage.historyname): JSON.parse(localStorage.historyname).slice(JSON.parse(localStorage.historyname).length - 4);
+      }
+    } 
 
     //  国内热门数据获取
     let countryhotrs = await getStarHotData({
@@ -145,10 +142,7 @@ export default {
       _: this.countryhot._,
       callback: this.countryhot.callback
     });
-    this.countryhot.countryhotlist = JSON.parse(
-      countryhotrs.data.slice(7, -2)
-    ).data.hotCityList.slice(0, 12);
-
+    this.countryhot.countryhotlist = JSON.parse(countryhotrs.data.slice(7, -2)).data.hotCityList.slice(0, 12);
     // 国外热门数据获取
     let boardhotrs = await getStarHotData({
       abroad: true,
@@ -156,9 +150,7 @@ export default {
       _: 1587218321107,
       callback: this.countryhot.callback
     });
-    this.countryhot.boardhotlist = JSON.parse(
-      boardhotrs.data.slice(7, -2)
-    ).data.hotCityList.slice(0, 12);
+    this.countryhot.boardhotlist = JSON.parse(boardhotrs.data.slice(7, -2)).data.hotCityList.slice(0, 12);
 
     // 特色玩法数据获取
     let featurers = await getFeatureData({

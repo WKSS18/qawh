@@ -20,26 +20,48 @@
         <i class="iconfont hotelloccha">&#xe709;</i>
       </p>
     </div>
+
     <div class="hoteldetail-tabbase">
       <ul class="hoteldetail-tablist">
         <li class="hoteldetailtab-refer">
-          <span>推荐排序</span>
-          <i></i>
+          <!-- <span>推荐排序</span> -->
+          <span @click="changesort=!changesort">
+          推荐排序
+          <i class="iconfont">{{changesort ? '&#xe6aa;': '&#xe630;'}}</i>
+          </span>
+          
         </li>
         <li class="hoteldetailtab-price">
-          <span>星级价格</span>
-          <i></i>
+          <!-- <span>星级价格</span> -->
+          <span @click="changeprice=!changeprice">
+          星级价格
+          <i class="iconfont">{{changeprice ? '&#xe6aa;': '&#xe630;'}}</i>
+          </span>
+          
         </li>
         <li class="hoteldetailtab-origin">
-          <span>位置区域</span>
-          <i></i>
+          <!-- <span>位置区域</span> -->
+          <span  @click="changearea=!changearea">
+          位置区域
+          <i class="iconfont">{{changearea ? '&#xe6aa;': '&#xe630;'}}</i>
+          </span>
+
         </li>
         <li class="hoteldetailtab-sizer">
-          <span>筛选</span>
-          <i></i>
+          <!-- <span>筛选</span> -->
+          <span @click="changefilter=!changefilter">
+          筛选
+          <i class="iconfont">{{changefilter ? '&#xe6aa;': '&#xe630;'}}</i>
+          </span>
         </li>
       </ul>
-    </div>
+    </div> 
+
+    <HotelSort v-show='changesort'></HotelSort>  
+    <HotelPrice v-show='changeprice'></HotelPrice>
+    <HotelArea v-show='changearea'></HotelArea>
+    <HotelFilter v-show="changefilter"></HotelFilter>
+    
     <div class="hoteldetail-trait" v-show="showtrait">
       <ul class="hoteldetail-traitlist">
         <li>安心住</li>
@@ -65,11 +87,21 @@ import Hoteldetailitem from "./hoteldetailitem";
 import BScroll from "@better-scroll/core";
 import Pullup from "@better-scroll/pull-up";
 import { Indicator, Toast } from "mint-ui";
+import '@/assets/style/fonts.scss'
 import "mint-ui/lib/style.css";
+import HotelSort from './hotelsort'
+import HotelPrice from './hotelprice'
+import HotelArea from './hotelarea'
+import HotelFilter from './hotelfilter'
 BScroll.use(Pullup);
 export default {
   data() {
     return {
+      changeview:false,
+      changesort:false,
+      changeprice:false,
+      changearea:false,
+      changefilter:false,
       showtrait: true,
       hotelmessage: {
         bd_source: "",
@@ -89,6 +121,13 @@ export default {
         hotelslen: 0
       }
     };
+  },
+  components:{
+    HotelSort,
+    HotelPrice,
+    HotelArea,
+    HotelFilter,
+    Hoteldetailitem
   },
   created() {
     this.pullingUpHandler();
@@ -152,11 +191,15 @@ export default {
           return;
         }
       });
+    },
+    changes(){
+      console.log('aa')
+      this.changei =!this.changei;
+      console.log(this.changei)
+      return this.changei;
     }
   },
-  components: {
-    Hoteldetailitem
-  }
+
 };
 </script>
 
@@ -169,6 +212,7 @@ export default {
   height: 40px;
   display: flex;
   flex-direction: row;
+  box-shadow: 2px 2px 2px #666;
 }
 ul.hoteldetail-tablist {
   display: flex;
@@ -259,5 +303,40 @@ i.hoteldetailbak {
 p.hoteldetail-location {
   line-height: 30px;
   margin-left: 16px;
+}
+
+.hotelactive{
+  color:#2d96a4;
+  &{
+    color:#2d96a4!important;
+    
+  }
+}
+li.hoteldetailtab-price a {
+    text-decoration: none;
+    color: black;
+}
+
+ul.hoteldetail-tablist {
+   text-decoration: none;
+    color: black;
+}
+
+li.hoteldetailtab-refer a {
+   text-decoration: none;
+    color: black;
+}
+
+li.hoteldetailtab-origin a {
+   text-decoration: none;
+    color: black;
+}
+
+li.hoteldetailtab-sizer a {
+   text-decoration: none;
+    color: black;
+}
+.hoteldetail-container {
+    position: relative;
 }
 </style>

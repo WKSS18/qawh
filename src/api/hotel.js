@@ -16,3 +16,9 @@ export const getHotelDetailDate = (params)=>{
     let url = '/hotelapi/hotelcn/api/hotellist'
     return post(url,params);
 }
+
+// 模拟位置区域数据
+export const getHotelAreaData = ()=>{
+    let url = '/hotelarea.json'
+    return get(url,{});
+}

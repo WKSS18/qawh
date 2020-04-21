@@ -75,7 +75,6 @@ export default {
 
       this.selectcon.selectlist.push(...selectrs.data.data.list);
       this.selectcon.selectlistlen = selectrs.data.data.list.length;
-      console.log(this.selectcon.selectlist);
       this.$nextTick(() => {
         //   多个不同的区块同时实现横向滑动效果
         for (var i = 0; i < this.selectcon.selectlist.length; i++) {

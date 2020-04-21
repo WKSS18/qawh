@@ -21,7 +21,13 @@ import Register from '@/views/user/register'
 import Note from '@/views/user/note'
 import Account from '@/views/user/account'
 import Logout from '@/views/user/logout'
-
+import CityMore from '@/views/strategy/citymore'
+import BoardCity from '@/views/strategy/boardcity'
+import InLand from '@/views/strategy/inland'
+import HotelSort from '@/views/hotel/hotelsort'
+import HotelPrice from '@/views/hotel/hotelprice'
+import HotelArea from '@/views/hotel/hotelarea'
+import HotelFilter from '@/views/hotel/hotelfilter'
 
 Vue.use(VueRouter)
 const routes = [
@@ -70,6 +76,20 @@ const routes = [
     }
   },
   {
+    path:'/strategy/citymore',
+    component:CityMore,
+    children:[
+      {
+        path:'boardcity',
+        component:BoardCity
+      },
+      {
+        path:'inland',
+        component:InLand
+      }
+    ]
+  },
+  {
     path: "/order",
     component: Order,
     children: [
@@ -105,7 +125,25 @@ const routes = [
   },
   {
     path: '/hoteldetail',
-    component: HotelDetail
+    component: HotelDetail,
+    children:[
+      {
+        path:"hotelsort",
+        component:HotelSort
+      },
+      {
+        path:"hotelprice",
+        component:HotelPrice
+      },
+      {
+        path:'hotelarea',
+        component:HotelArea
+      },
+      {
+        path:'hotelfilter',
+        component:HotelFilter
+      }
+    ]
   },
   {
     path: '/login',
