@@ -16,7 +16,7 @@
         <span class="hoteldetail-cityname">{{hotelmessage.initmsg.city}}</span>
         <input type="text" readonly placeholder="地名/酒店/关键字" />
       </p>
-      <p class="hoteldetail-location">
+      <p class="hoteldetail-location" @click='showmap=!showmap'>
         <i class="iconfont hotelloccha">&#xe709;</i>
       </p>
     </div>
@@ -61,7 +61,7 @@
     <HotelPrice v-show='changeprice'></HotelPrice>
     <HotelArea v-show='changearea'></HotelArea>
     <HotelFilter v-show="changefilter"></HotelFilter>
-    
+    <HotelMap v-show='showmap'></HotelMap>
     <div class="hoteldetail-trait" v-show="showtrait">
       <ul class="hoteldetail-traitlist">
         <li>安心住</li>
@@ -93,6 +93,7 @@ import HotelSort from './hotelsort'
 import HotelPrice from './hotelprice'
 import HotelArea from './hotelarea'
 import HotelFilter from './hotelfilter'
+import HotelMap from './hotelmap'
 BScroll.use(Pullup);
 export default {
   data() {
@@ -102,6 +103,7 @@ export default {
       changeprice:false,
       changearea:false,
       changefilter:false,
+      showmap:false,
       showtrait: true,
       hotelmessage: {
         bd_source: "",
@@ -127,6 +129,7 @@ export default {
     HotelPrice,
     HotelArea,
     HotelFilter,
+    HotelMap,
     Hoteldetailitem
   },
   created() {

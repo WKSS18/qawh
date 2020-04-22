@@ -22,3 +22,9 @@ export const getHotelAreaData = ()=>{
     let url = '/hotelarea.json'
     return get(url,{});
 }
+
+// 酒店详情数据接口
+export const getHotelDetailData = (params)=>{
+    let url = '/hotelapi/hotelcn/api/hoteldetail'
+    return post(url,params);
+}

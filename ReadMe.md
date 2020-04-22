@@ -1,11 +1,13 @@
 
 项目名称：vue重写去哪儿网移动端
 
-主要重写模块： 酒店  攻略  登录  订单
+主要重写模块： 酒店  攻略  首页  订单  我的
 
 技术栈： axios  vue  betterscroll  element-ui  mockjs （待补充）
 
 
+
+搭建中用到的一些在线请求接口地址：
 
 1  酒店页面数据请求
 
@@ -58,3 +60,16 @@ get
 https://touch.piao.qunar.com/touch/detail.htm?id=340864
 
 8 订单数据接口
+
+9 酒店检索结果页面引入了百度地图接口，地图能正常显示，选中地点后实现二次检索酒店未做
+
+10 酒店详情页数据接口
+https://touch.qunar.com/hotelcn/api/hoteldetail
+checkInDate: "2020-04-22"
+checkOutDate: "2020-04-23"
+cityUrl: "beijing_city"
+extra: "{"highQuality":false}"
+keywords: ""
+location: ""
+seq: "beijing_city_42511"
+这一块数据要在初次检索的时候存到sessionStorage中，请求的时候动态引入

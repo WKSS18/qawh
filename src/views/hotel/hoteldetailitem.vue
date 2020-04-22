@@ -50,7 +50,8 @@ export default {
   },
   methods:{
     hoteldetail(id){
-      location.href = './hoteldetail.html?'+id;
+      let hotelmsg = JSON.parse(sessionStorage.hotelmsg);
+      location.href = './hoteldetail.html?'+"seq="+id+"&cityUrl="+hotelmsg.cityurl+"&extra="+"{'highQuality':false}"+"&checkInDate="+hotelmsg.checkInDate+"&checkOutDate="+hotelmsg.checkOutDate;
     }
   }
 };
