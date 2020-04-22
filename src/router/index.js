@@ -148,7 +148,7 @@ const routes = [
   {
     path: '/login',
     component: Login,
-    redirect:'/login/note',
+    redirect:'/login/account',
     children:[
       {
         path:'/login/note',

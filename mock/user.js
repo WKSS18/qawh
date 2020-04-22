@@ -5,7 +5,7 @@ var userMsg = {
 }
 Mock.mock('/api/login','post',(login)=>{
     let users = JSON.parse(login.body);
-    console.log(users)
+    users.username = users.username.trim();
     if(users.username === userMsg.username){
         if(users.password === userMsg.password){
             return Mock.mock({

@@ -17,7 +17,7 @@
         <img src="https://source.qunarzz.com/usercenter/touch/avatar.png" alt />
       </a>
       <p class="profile-logreg">
-        <span @click="$router.push('/login')">登录</span>
+        <span @click="$router.push('/login/account')">登录</span>
         /
         <span @click="$router.push('/register')">注册</span>
       </p>
