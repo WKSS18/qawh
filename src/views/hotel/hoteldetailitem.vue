@@ -71,6 +71,9 @@ img.hotelitem-warmimg {
 
 .hotel-detailitem {
   display: flex;
+  &:first-child{
+    padding-top: 10px;
+  }
   &:last-child{
       border-bottom: none;
       margin-bottom: 0;

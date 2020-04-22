@@ -253,7 +253,7 @@ ul.hoteldetail-traitlist li {
 }
 .hoteldetail-main {
   flex: 1;
-  margin-top: 10px;
+  // margin-top: 10px;
   overflow: hidden;
 }
 .hoteldetail-head {
