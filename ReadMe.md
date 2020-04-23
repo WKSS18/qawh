@@ -3,7 +3,7 @@
 
 主要重写模块： 酒店  攻略  首页  订单  我的
 
-技术栈： axios  vue  betterscroll  element-ui  mockjs （待补充）
+技术栈： axios  vue  betterscroll  element-ui  mockjs json-server 
 
 注意：首页进入初始需要刷新界面，并且切换一次浏览器和移动端模式（页面的滚动此时才生效）
 
