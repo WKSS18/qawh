@@ -90,7 +90,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.initBscroll();
+      // this.initBscroll();
     });
   },
   methods: {
@@ -144,6 +144,7 @@ export default {
   .index-wrapper {
     flex: 1;
     overflow: hidden;
+    overflow: auto;
   }
   .qn-touchhead {
     padding-top: 10px;
