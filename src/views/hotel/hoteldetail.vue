@@ -178,7 +178,6 @@ export default {
          this.hotelmessage.hoteldetaillist.push(...hoteldetailrs.data.data.hotels);
          this.hotelmessage.hotelslen = hoteldetailrs.data.data.hotels.length;
       }
-      this.hotelmessage.hotelslen = hoteldetailrs.data.data.hotels.length;
       this.$nextTick(() => {
         this.hotelmessage.page++;
         Indicator.close();
