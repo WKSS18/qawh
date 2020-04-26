@@ -1,5 +1,6 @@
 <template>
   <div class="hoteldetail-container">
+      <i class="iconfont hoteldetailak" @click="$router.go(-1)">&#xe928;</i>
       <div class="hoteldetail-head">
           <ul class="hoteldetail-uls">
               <li class="hoteldetail-imgs" v-for='(item,index) in hoteldetail.hotelmsglist.picView' :key='index'>
@@ -84,6 +85,16 @@ p.hoteldetail-title {
     font-size: 16px;
     color: #212121;
     font-family: PingFangSC-Regular,MicroSoft YaHei,"sans-serif";
+    padding: 10px;
+}
+.hoteldetail-container {
+    position: relative;
+}
+
+i.iconfont.hoteldetailak {
+    position: absolute;
+    color: white;
+    font-size: 30px;
     padding: 10px;
 }
 </style>
