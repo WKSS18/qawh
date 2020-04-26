@@ -174,10 +174,9 @@ export default {
         page: this.hotelmessage.page,
         sort: "0"
       });
-      if (hoteldetailrs.status === 200) {
-        this.hotelmessage.hoteldetaillist.push(
-          ...hoteldetailrs.data.data.hotels
-        );
+      if(hoteldetailrs.data.ret){
+         this.hotelmessage.hoteldetaillist.push(...hoteldetailrs.data.data.hotels);
+         this.hotelmessage.hotelslen = hoteldetailrs.data.data.hotels.length;
       }
       this.hotelmessage.hotelslen = hoteldetailrs.data.data.hotels.length;
       this.$nextTick(() => {
